@@ -38,7 +38,7 @@
   .display { font-family: 'Fredoka', -apple-system, sans-serif; font-weight: 600; }
   a { color: inherit; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
-  @media (max-width: 640px) { .wrap { padding: 0 20px; } }
+  @media (max-width: 640px) { .wrap { padding: 0 18px; } }
 
   /* ---------- Header ---------- */
   header {
@@ -60,7 +60,13 @@
   nav { display: flex; gap: 30px; align-items: center; }
   nav a { text-decoration: none; font-size: 0.94rem; font-weight: 500; color: var(--charcoal); }
   nav a:hover { color: var(--pulp); }
-  @media (max-width: 780px) { nav .nav-links { display: none; } }
+  @media (max-width: 780px) {
+    .header-inner { flex-wrap: wrap; }
+    nav { flex: 1 0 100%; flex-direction: column; align-items: stretch; gap: 10px; padding-top: 12px; }
+    nav .nav-links { display: flex !important; flex-direction: column; gap: 0 !important; width: 100%; }
+    nav .nav-links a { padding: 10px 0; border-top: 1px solid var(--line); }
+    nav > .btn { justify-content: center; width: 100%; }
+  }
   .btn {
     display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
     border-radius: 999px; font-weight: 600; font-size: 0.95rem; text-decoration: none;
@@ -99,6 +105,21 @@
   }
   .hero-sub { font-size: 1.1rem; line-height: 1.6; color: var(--charcoal); max-width: 46ch; margin: 0 0 32px; }
   .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .header-inner { padding: 12px 0; }
+    .wordmark { font-size: 1.05rem; gap: 8px; }
+    .wordmark-photo { width: 36px; height: 36px; }
+    nav > .btn { padding: 10px 14px; font-size: 0.82rem; }
+    .hero { min-height: 610px; }
+    .hero-bg img { object-position: 62% center; }
+    .hero-scrim { background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.76) 52%, rgba(255,255,255,0.42) 100%); }
+    .hero-content { padding: 74px 0 56px; max-width: none; text-align: center; }
+    h1.hero-title { font-size: clamp(2.25rem, 11vw, 3.25rem); }
+    .hero-sub { max-width: 40ch; margin-left: auto; margin-right: auto; font-size: 1rem; }
+    .cta-row { justify-content: center; }
+    .cta-row .btn { min-width: 0; }
+  }
 
   /* ---------- Section scaffolding ---------- */
   section { padding: 88px 0; }
@@ -283,7 +304,7 @@
       Patrine&rsquo;s Grove
     </a>
     <nav>
-      <div class="nav-links" style="display:flex; gap:30px;">
+      <div class="nav-links">
         <a href="#about">About</a>
         <a href="#why">Why Us</a>
         <a href="#grows">Learn</a>
